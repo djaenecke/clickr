@@ -116,8 +116,8 @@ Clickr.prototype.adjustOverlay = function (image) {
         startX = -21, startY = -21,
         offsetX = sizeX + startX, offsetY = sizeY + startY;
 
-    reqX = Math.ceil(image.width / offsetX);
-    reqY = Math.ceil(image.height / offsetY);
+    reqX = Math.ceil((image.width - startX)/ offsetX);
+    reqY = Math.ceil((image.height -startY)/ offsetY);
 
     this.debug("width:  " + image.width + " -> " + reqX);
     this.debug("height: " + image.height + " -> " + reqY);
@@ -260,4 +260,13 @@ Clickr.prototype.addImage = function (src) {
 Clickr.prototype.addTile = function (src) {
     this.tileImages.push(src);
     return this;
+}
+
+/**
+ * Get number of remaining images
+ *
+ * @returns {Number}
+ */
+Clickr.prototype.getImageCount = function() {
+    return this.images.length;
 }

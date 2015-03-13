@@ -32,6 +32,7 @@
                 printf( 'clickr.addTile("%s");' . PHP_EOL, $tile);
             }
         ?>
+
     </script>
     <style type="text/css">
         div.tile {
@@ -49,18 +50,25 @@
 
         #clickr_image {
         }
+
+        button {
+            color: #c0c0c0;
+            background-color: #000080;
+            width: 100px;
+        }
     </style>
 </head>
 <body>
 
-<h1>Clickr</h1>
-<button onclick="clickr.newImage() || alert('Keine Bilder mehr!')">new image</button>
-<button onclick="clickr.dropTile()">click</button>
-<button onclick="clickr.clear()">clear</button>
+<h1>Clickr
+<button onclick="result = clickr.newImage(); if(result) updateCounter(); else alert('No more images!')">Next Image</button>
+<button onclick="clickr.dropTile()">Click</button>
+<button onclick="clickr.clear()">Clear</button></h1>
 <br/>
 
+
 <div style="text-align: center;">
-    <img src="" id="clickr_image"/>
+    <img src="/image/empty.png" id="clickr_image"/>
 </div>
 
 <div id="overlay"></div>
